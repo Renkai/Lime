@@ -18,7 +18,7 @@ def extract():
             print(f"line: {line}")
             print(char)
             print(code)
-            loge.write(f"{char} {code}\n")
+            loge.write(f"{char}\t{code}\n")
 
 
 if __name__ == '__main__':
