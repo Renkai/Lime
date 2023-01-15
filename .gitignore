@@ -1,1 +1,5 @@
-.idea
+/.idea/
+/build/
+*.userdb
+installation.yaml
+user.yaml
