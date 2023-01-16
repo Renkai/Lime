@@ -20,12 +20,8 @@ switches:
   - name: zh_simp
     reset: 1
     states: [ 漢字, 汉字 ]
-  - options: ["utf8", "gbk", "gb2312"] # (※2)字符集选单
-    reset: 0 # 默认 UTF8
-    states:
-      - UTF-8
-      - GBK
-      - GB2312
+  - name: ascii_punct
+    states: [ 。，, ．， ]
 
 engine:
   processors:
@@ -51,7 +47,6 @@ engine:
   filters:
     - simplifier
     - uniquifier
-    - charset_filter@gbk # (※3) GBK 过滤
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba[
