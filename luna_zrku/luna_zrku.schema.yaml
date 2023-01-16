@@ -48,11 +48,14 @@ engine:
     - uniquifier
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcba
+  alphabet: zyxwvutsrqponmlkjihgfedcba[
+  initials: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
   algebra:
-    - erase/^xx$/
-
+    - derive/^(..).+$/$1/
+    - derive/^(..[[].).+$/$1/
+    - derive/^([jqxy])u/$1v/
+    - xform/[[]// # 取消注释后：直接引导辅助码
 translator:
   dictionary: luna_zrku
   prism: luna_zrku_simp
