@@ -30,29 +30,44 @@ object FlyToZrm {
     "w" -> "z",
     "p" -> "x",
     "z" -> "b",
-    "b" -> "n"
+    "b" -> "n",
+    "n" -> "c"
   )
   def singleChar(line: String): String = {
     line match {
       case singleCharPattern(char, first, second, assist) => {
-        println(s"char:${char} ,fist: ${first}, second: ${second}, assist: ${assist}")
-        ""
+//        println(s"char:${char} ,fist: ${first}, second: ${second}, assist: ${assist}")
+        if (Array("a", "e", "i", "o", "u").contains(first) && second == "n") {
+          // don't switch
+          line
+        } else {
+          s"$char$first${flyZrm.getOrElse(second, second)}[$assist"
+        }
       }
       case ""                                             => ""
+      case x if x.startsWith("#")                         => x
       case unexpected                                     =>
         throw new Exception(s"got unexpected: ${unexpected}")
     }
   }
   def main(args: Array[String]): Unit  = {
     val wordStart               = "#以下爲詞組"
-    val lines: Iterator[String] = scala.io.Source
+    val resource                = scala.io.Source
       .fromResource("flypy_zrmfast.dict.yaml")
+    val lines: Iterator[String] = resource
       .getLines()
       .drop(skipLines)
       .takeWhile(s => !s.startsWith(wordStart))
+    import java.nio.file.{Files, Paths}
+
+    val bufferedWriter = Files.newBufferedWriter(Paths.get("zrku.dict.yaml"))
+    bufferedWriter.write(head("", "zrku"))
+
     for (line <- lines) {
-      println(line)
-      singleChar(line)
+      val zrku = singleChar(line)
+      bufferedWriter.write(zrku + "\n")
     }
+    resource.close()
+    bufferedWriter.close()
   }
 }
