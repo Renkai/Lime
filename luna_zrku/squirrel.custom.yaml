@@ -1,4 +1,5 @@
 patch:
+  menu/page_size: 4 # 自定义候选项个数
   show_notifications_when: appropriate     # 状态通知，可设为全开（always）全关（never）  
 
   # 皮肤主题名称输入在下方，分为浅色和深色
