@@ -3,3 +3,5 @@
 *.userdb
 installation.yaml
 user.yaml
+/references/
+target

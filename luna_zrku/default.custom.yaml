@@ -1,0 +1,4 @@
+patch:
+  schema_list:
+    - schema: luna_pinyin_simp # 朙月拼音
+    - schema: luna_zrku # 明月自然快手

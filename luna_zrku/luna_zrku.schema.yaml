@@ -1,0 +1,100 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: luna_zrku
+  name: 明月自然快手
+  version: "0.1"
+  author:
+    - Renkai
+  description: |
+    基于明月拼音小幅度更改的自然码双拼, 带辅码
+  dependencies:
+    - easy_en
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: zh_simp
+    reset: 1
+    states: [ 漢字, 汉字 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator@custom_phrase
+    - script_translator
+    - table_translator@english # 只比明月拼音多这一个
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba[
+  initials: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  algebra:
+    - derive/^(..).+$/$1/
+    - derive/^(..[[].).+$/$1/
+    - derive/^([jqxy])u/$1v/
+    - xform/[[]// # 取消注释后：直接引导辅助码
+translator:
+  dictionary: luna_zrku.extended
+  prism: luna_zrku_simp
+  spelling_hints: 2
+  comment_format:
+    - xform/[^[ ]+[[]// # 单字以及双字编码提示只显示辅助码部分
+  preedit_format:
+# 缓冲区保持粗犷
+#    - xform/([nl])v/$1ü/
+#    - xform/([nl])ue/$1üe/
+#    - xform/([jqxy])v/$1u/
+
+english:
+  dictionary: easy_en
+  spelling_hints: 9
+  enable_completion: true # 是否启用英文输入联想补全
+  enable_sentence: false
+  initial_quality: -0.5 # 英文候选词的位置, 数值越大越靠前。
+
+custom_phrase:
+  dictionary: ""
+  user_dict: custom_phrase
+  db_class: stabledb
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 1
+
+simplifier:
+  option_name: zh_simp
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+  bindings:
+    - { when: always, accept: Control+Shift+4, toggle: zh_simp }
+    - { when: always, accept: Control+Shift+dollar, toggle: zh_simp }
+
+recognizer:
+  import_preset: default
