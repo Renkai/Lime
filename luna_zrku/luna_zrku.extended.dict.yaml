@@ -11,7 +11,7 @@ use_preset_vocabulary: true
 
 import_tables:
   - luna_zrku
-  - dicts/luna_pinyin.hanyu
+#  - dicts/luna_pinyin.hanyu # 后选项太多了,先去掉
   - dicts/luna_pinyin.history
   - dicts/luna_pinyin.idiom
   - dicts/luna_pinyin.name
