@@ -60,6 +60,9 @@ speller:
 translator:
   dictionary: luna_zrku
   prism: luna_zrku_simp
+  spelling_hints: 2
+  comment_format:
+    - xform/[^[ ]+[[]// # 单字以及双字编码提示只显示辅助码部分
   preedit_format:
 # 缓冲区保持粗犷
 #    - xform/([nl])v/$1ü/
