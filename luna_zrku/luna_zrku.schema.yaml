@@ -58,7 +58,7 @@ speller:
     - derive/^([jqxy])u/$1v/
     - xform/[[]// # 取消注释后：直接引导辅助码
 translator:
-  dictionary: luna_zrku
+  dictionary: luna_zrku.extended
   prism: luna_zrku_simp
   spelling_hints: 2
   comment_format:
