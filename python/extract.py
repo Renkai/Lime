@@ -1,7 +1,7 @@
 # http://bbs.pinyin.thunisoft.com/forum.php?mod=viewthread&tid=28002&highlight=%D7%D4%C8%BB%BF%EC%CA%D6
 
 def extract():
-    loge = open("自然快手.txt", "w")
+    ubxn = open("自然快手手心.txt", "w")
     count = 0
     with open("蓝天快手单字.ini", "r", encoding="utf-16le") as f:
         lines = f.readlines()
@@ -18,7 +18,7 @@ def extract():
             print(f"line: {line}")
             print(char)
             print(code)
-            loge.write(f"{char}\t{code}\n")
+            ubxn.write(f"{char}={code}\n")
 
 
 if __name__ == '__main__':
