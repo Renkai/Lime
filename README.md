@@ -34,6 +34,13 @@ http://bbs.pinyin.thunisoft.com/forum.php?mod=viewthread&tid=28002
 中英混合参考 [三十年河东](https://ssnhd.com/2022/01/06/rime/) 的配置. 他的方案全拼下有中英混合, 改双拼就没了. 我的理解是由于他方案里的双拼依靠 Rime引擎的代数运算实现.
 代数运算连英文也一起算了, 英文就用不了了. 我这里事先把码表换成了自然码了, 就没有这种冲突了.
 
+# 语法模型
+Rime 作者似乎在创建 Rime 若干年后搞了个语法模型功能, 数据地址在
+
+https://github.com/lotem/rime-octagram-data
+创建事件是2019年. 对优化选词效率减小选词需求应该有点用
+(我试了之后感觉有用, 不知道是不是心理作用)
+新版的Rime是否已经内置该功能, 还是必须要另外安装, 也不清楚. 反正我安装了.
 # 其他功能
 没有其他功能😂.
 想要丰富些的功能可以看 [三十年河东](https://ssnhd.com/2022/01/06/rime/) 或者 [functorreality](https://github.com/functoreality/rime-flypy-zrmfast
