@@ -17,9 +17,9 @@ switches:
     states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
-#  - name: zh_simp
-#    reset: 1
-#    states: [ 漢字, 汉字 ]
+  #  - name: zh_simp
+  #    reset: 1
+  #    states: [ 漢字, 汉字 ]
   - name: ascii_punct
     states: [ 。，, ．， ]
 
@@ -45,7 +45,7 @@ engine:
     - script_translator
     - table_translator@english # 只比明月拼音多这一个
   filters:
-#    - simplifier
+    #    - simplifier
     - uniquifier
 
 speller:
@@ -53,11 +53,22 @@ speller:
   initials: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
   algebra:
-    - derive/^(..)(.*).$/$1$2/
-    - derive/^(..)(.*).$/$1$2/
-    - derive/^(..)(.*).$/$1$2/
-    - derive/^(..)(.*).$/$1$2/
-    - derive/^(..)(.*).$/$1$2/
+    #    From renkai, 野鸡货
+    #    - derive/^(..)(.*).$/$1$2/
+    #    - derive/^(..)(.*).$/$1$2/
+    #    - derive/^(..)(.*).$/$1$2/
+    #    - derive/^(..)(.*).$/$1$2/
+    #    - derive/^(..)(.*).$/$1$2/
+    # From original xkjd6, not totally understanded, but maybe better
+    - derive/^[bcdefghjklmnpqrstwxyz;]([bcdefghjklmnpqrstwxyz;][avuio].*)$/`$1/
+    - derive/^([bcdefghjklmnpqrstwxyz;])[bcdefghjklmnpqrstwxyz;]([avuio].*)$/$1`$2/
+    - derive/^([bcdefghjklmnpqrstwxyz;`]{2})[avuio](.*)$/$1`$2/
+    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]).(.*)$/$1`$2/
+    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]{2}).(.*)$/$1`$2/
+    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]{3}).(.*)$/$1`$2/
+    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]{4}).(.*)$/$1`$2/
+    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]{5}).$/$1`/
+    - derive/^[bcdefghjklmnpqrstwxyz;]{2}([avuio`]*)$/``$1/
 translator:
   dictionary: luna_jd6.extended
   prism: luna_jd6
