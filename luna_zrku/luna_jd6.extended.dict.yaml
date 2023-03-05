@@ -11,9 +11,5 @@ use_preset_vocabulary: true
 
 import_tables:
   - xkjd6.danzi
-#  - dicts/luna_pinyin.hanyu # 后选项太多了,先去掉
-  - dicts/luna_pinyin.history
-  - dicts/luna_pinyin.idiom
-  - dicts/luna_pinyin.name
-  - dicts/luna_pinyin.poetry
+  - simp_dicts/xkjd6.cizu
 ...
