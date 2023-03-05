@@ -65,7 +65,8 @@ translator:
   prism: luna_jd6
   spelling_hints: 2
   comment_format:
-    - xform/[^avuio ]// #编码提示只显示辅助码部分
+    - xform/ /_/
+    - xform/[^avuio_]// #编码提示只显示辅助码部分
   preedit_format:
 # 缓冲区保持粗犷
 #    - xform/([nl])v/$1ü/
