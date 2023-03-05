@@ -53,7 +53,11 @@ speller:
   initials: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
   algebra:
-    - derive/^(..).+$/$1/
+    - derive/^(..)(.*).$/$1$2/
+    - derive/^(..)(.*).$/$1$2/
+    - derive/^(..)(.*).$/$1$2/
+    - derive/^(..)(.*).$/$1$2/
+    - derive/^(..)(.*).$/$1$2/
 translator:
   dictionary: luna_jd6.extended
   prism: luna_jd6
