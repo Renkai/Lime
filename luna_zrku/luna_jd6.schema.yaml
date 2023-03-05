@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 schema:
-  schema_id: luna_zrku
+  schema_id: luna_jd6
   name: 明月键道
   version: "0.1"
   author:
@@ -55,7 +55,7 @@ speller:
   algebra:
     - derive/^(..).+$/$1/
 translator:
-  dictionary: luna_zrku.extended
+  dictionary: luna_jd6.extended
   prism: luna_zrku_simp
   spelling_hints: 2
   comment_format:
