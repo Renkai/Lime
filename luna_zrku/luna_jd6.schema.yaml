@@ -53,22 +53,13 @@ speller:
   initials: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
   algebra:
-    #    From renkai, 野鸡货
-    #    - derive/^(..)(.*).$/$1$2/
-    #    - derive/^(..)(.*).$/$1$2/
-    #    - derive/^(..)(.*).$/$1$2/
-    #    - derive/^(..)(.*).$/$1$2/
-    #    - derive/^(..)(.*).$/$1$2/
-    # From original xkjd6, not totally understanded, but maybe better
-    - derive/^[bcdefghjklmnpqrstwxyz;]([bcdefghjklmnpqrstwxyz;][avuio].*)$/`$1/
-    - derive/^([bcdefghjklmnpqrstwxyz;])[bcdefghjklmnpqrstwxyz;]([avuio].*)$/$1`$2/
-    - derive/^([bcdefghjklmnpqrstwxyz;`]{2})[avuio](.*)$/$1`$2/
-    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]).(.*)$/$1`$2/
-    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]{2}).(.*)$/$1`$2/
-    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]{3}).(.*)$/$1`$2/
-    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]{4}).(.*)$/$1`$2/
-    - derive/^([bcdefghjklmnpqrstwxyz;`]{2}[avuio`]{5}).$/$1`/
-    - derive/^[bcdefghjklmnpqrstwxyz;]{2}([avuio`]*)$/``$1/
+    - derive/^(..)(.*).$/$1$2/
+    - derive/^(..)(.*).$/$1$2/
+    - derive/^(..)(.*).$/$1$2/
+    - derive/^(..)(.*).$/$1$2/
+    - derive/^(..)(.*).$/$1$2/
+    - derive/^(..)(.*).$/$1$2/
+
 translator:
   dictionary: luna_jd6.extended
   prism: luna_jd6
