@@ -17,9 +17,9 @@ switches:
     states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
-  - name: zh_simp
-    reset: 1
-    states: [ 漢字, 汉字 ]
+#  - name: zh_simp
+#    reset: 1
+#    states: [ 漢字, 汉字 ]
   - name: ascii_punct
     states: [ 。，, ．， ]
 
@@ -45,7 +45,7 @@ engine:
     - script_translator
     - table_translator@english # 只比明月拼音多这一个
   filters:
-    - simplifier
+#    - simplifier
     - uniquifier
 
 speller:
@@ -56,10 +56,10 @@ speller:
     - derive/^(..).+$/$1/
 translator:
   dictionary: luna_jd6.extended
-  prism: luna_zrku_simp
+  prism: luna_jd6
   spelling_hints: 2
   comment_format:
-    - xform/[^[ ]+[[]// # 单字以及双字编码提示只显示辅助码部分
+    - xform/[^avuio ]// #编码提示只显示辅助码部分
   preedit_format:
 # 缓冲区保持粗犷
 #    - xform/([nl])v/$1ü/
@@ -92,6 +92,7 @@ key_binder:
   bindings:
     - { when: always, accept: Control+Shift+4, toggle: zh_simp }
     - { when: always, accept: Control+Shift+dollar, toggle: zh_simp }
-
+    - { when: has_menu, accept: semicolon, send: 2 }            # 第2候选键(;)
+    - { when: has_menu, accept: apostrophe, send: 3 }           # 第3候选键(')
 recognizer:
   import_preset: default
