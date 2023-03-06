@@ -11,6 +11,7 @@ sort: by_weight  #字典初始排序，可選original或by_weight
 import_tables:
   - xkjd6.danzi
   - simp_dicts/xkjd6.cizu
+#  - simp_dicts/sougou_freq
 #  - simp_dicts/essay.s
   - simp_dicts/xkjd6.ddd
 ...

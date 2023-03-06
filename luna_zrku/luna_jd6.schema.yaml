@@ -62,7 +62,7 @@ speller:
 
 translator:
   dictionary: luna_jd6.extended
-  prism: luna_jd6
+  prism: luna_jd6_simp
   spelling_hints: 2
   comment_format:
     - xform/ /_/
